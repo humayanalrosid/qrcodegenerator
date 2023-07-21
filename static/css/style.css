@@ -32,7 +32,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80vh;
+    height: 90vh;
 }
 
 #downloadBtn {
@@ -49,7 +49,7 @@ a {
 
 footer {
     background-color: #2D4356;
-    position: absolute;
+    padding-top: 5px;
     bottom: 0;
     width: 100%;
 }
