@@ -5,7 +5,7 @@ import base64
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user
 
-app = Flask(__name__)
+app = Flask(__name__) 
 app.secret_key = "arTiveRInExp"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db.sqlite"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False

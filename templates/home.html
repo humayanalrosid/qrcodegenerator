@@ -55,7 +55,10 @@
                 <img src="{{ qr }}" class="img-thumbnail mb-3" alt="QR Code" width="350px">
             </div>
 
-            <a href="{{ url_for('download', data=data) }}" id="downloadBtn" class="btn btn-primary">Download QR Code</a>
+            <div class="d-grid gap-2 col-7 mx-auto">
+                <a href="{{ url_for('download', data=data) }}" id="downloadBtn" class="btn btn-primary">Download QR
+                    Code</a>
+            </div>
         </div>
         {% endif %}
     </div>
