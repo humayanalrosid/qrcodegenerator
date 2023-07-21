@@ -24,6 +24,10 @@ h2 {
     background-color: #2D4356;
 }
 
+#btnRed {
+    background-color: #D9534F;
+}
+
 .row {
     display: flex;
     justify-content: center;

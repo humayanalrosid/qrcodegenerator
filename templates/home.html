@@ -42,7 +42,7 @@
                 {% endif %}
 
                 {% if tap > 5 and not current_user.is_authenticated %}
-                <a href="{{ url_for('signup') }}" class="btn btn-danger">Signup</a>
+                <a href="{{ url_for('signup') }}" id="btnRed" class="btn btn-danger">Signup</a>
                 {% else %}
                 <input type="submit" value="Generate" class="btn-gen btn btn-primary">
                 {% endif %}
