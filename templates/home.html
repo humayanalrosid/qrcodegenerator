@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block page %}Generate QR Codes{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% else %}
+        <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+            <strong>{{ message }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <div class="card p-4 mb-3 mt-3">
+            <div class="text-center mb-3">
+                <h2 class="fw-bold">Generate QR Codes</h2>
+            </div>
+
+            <form action="" method="post">
+                <div class="form-floating mb-3">
+                    <input type="text" name="data" class="form-control" placeholder="Enter a text or url" {% if tap> 5
+                    and not current_user.is_authenticated %}disabled{% endif %}>
+                    <label for="floatingInput">Enter a text or url</label>
+                </div>
+
+                {% if tap > 5 and not current_user.is_authenticated %}
+                <div class="form-text mb-3 text-danger">QR codes are limited. Sign up to get more.</div>
+                {% endif %}
+
+                {% if tap > 5 and not current_user.is_authenticated %}
+                <a href="{{ url_for('signup') }}" class="btn btn-danger">Signup</a>
+                {% else %}
+                <input type="submit" value="Generate" class="btn-gen btn btn-primary">
+                {% endif %}
+            </form>
+        </div>
+
+        {% if qr %}
+        <div class="card p-4 mt-3 mb-5">
+            <div class="text-center">
+                <img src="{{ qr }}" class="img-thumbnail mb-3" alt="QR Code" width="350px">
+            </div>
+
+            <a href="{{ url_for('download', data=data) }}" id="downloadBtn" class="btn btn-primary">Download QR Code</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
