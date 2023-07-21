@@ -28,19 +28,6 @@ h2 {
     background-color: #D9534F;
 }
 
-.row {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 83vh; 
-}
-
-/* #downloadBtn {
-    display: block;
-    margin: 0 auto;
-    width: 350px;
-} */
-
 a {
     text-decoration: none;
     color: #1D5B79;
